@@ -802,7 +802,7 @@ namespace WorldEditor
         {
             this.Opacity = 0;
             this.ShowInTaskbar = false;
-            BeginInvoke(new MethodInvoker(delegate
+            BeginInvoke(new System.Windows.Forms.MethodInvoker(delegate
             {
                 Hide();
             }));
@@ -823,7 +823,7 @@ namespace WorldEditor
         {
 
                 List<Item> Items = ItemPid.GetItems();
-                this.BeginInvoke((MethodInvoker)delegate
+                this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate
             {
                 AddStringsToZonePropertyControls();
                 foreach (Item Item in Items)
@@ -845,7 +845,7 @@ namespace WorldEditor
                 
                 //worldmap = new WorldMap("worldmap_sdk.fowm", "worldmap_sdk.focwm", new SDKWorldMapFormat(WorldMapHeaderData));
                 bwMaps.ReportProgress(52);
-                this.BeginInvoke((MethodInvoker)delegate
+                this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate
                 {
                     pctWorldMap.Refresh();
                     locationEditorToolStripMenuItem.Enabled = true;
@@ -860,14 +860,14 @@ namespace WorldEditor
         {
             //this.Invoke((MethodInvoker)delegate { Utils.Log("Init colors"); });
                
-            this.BeginInvoke((MethodInvoker)delegate { Utils.Log("Loading ITEMPID.H"); });
+            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate { Utils.Log("Loading ITEMPID.H"); });
             ItemPid.Init();
             LoadParamDefines();
             bwMisc.ReportProgress(50);
             LoadProtoManager();
             bwMisc.ReportProgress(100);
 
-            this.BeginInvoke((MethodInvoker)delegate { Utils.Log("Loaded game data."); });
+            this.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate { Utils.Log("Loaded game data."); });
         }
 
         private void LoadProtoManager()

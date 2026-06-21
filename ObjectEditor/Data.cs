@@ -73,7 +73,7 @@ namespace ObjectEditor
                     }
                     if (ext == ".frm")
                     {
-                        List<Bitmap> bmaps = FalloutFRM.Load(data.ToArray(), Transparency);
+                        List<Bitmap> bmaps = FalloutFRMLoader.Load(data.ToArray(), Transparency);
                         Graphics[e.FileName.ToLower()] = bmaps[0];
                     }
                     else
@@ -111,7 +111,7 @@ namespace ObjectEditor
 
                if (ext == ".frm")
                {
-                   List<Bitmap> bmaps = FalloutFRM.Load(file.GetData(), Transparency);
+                   List<Bitmap> bmaps = FalloutFRMLoader.Load(file.GetData(), Transparency);
                    Graphics[file.Path.ToLower()] = bmaps[0];
                }
                else

@@ -33,7 +33,7 @@ namespace Frmviewer
             if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 //FalloutFRM frm = new FalloutFRM();
-                loadedFrm = FalloutFRM.Load(fileDialog.FileName, Mask);
+                loadedFrm = FalloutFRMLoader.Load(fileDialog.FileName, Mask);
                 pnlRender.Invalidate();
             }
         }

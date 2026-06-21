@@ -1,7 +1,10 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FOMonitor", "FOMonitor.csproj", "{2E801E1F-129E-4C17-AF04-2649DB69D795}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37012.4 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FOMonitor", "FOMonitor.csproj", "{2E801E1F-129E-4C17-AF04-2649DB69D795}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectListView2012", "..\3rdParty\ObjectListView\ObjectListView2012.csproj", "{F5D807B8-DE40-5BB3-7015-FB48CFECD7AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +16,10 @@ Global
 		{2E801E1F-129E-4C17-AF04-2649DB69D795}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E801E1F-129E-4C17-AF04-2649DB69D795}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E801E1F-129E-4C17-AF04-2649DB69D795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5D807B8-DE40-5BB3-7015-FB48CFECD7AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D807B8-DE40-5BB3-7015-FB48CFECD7AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D807B8-DE40-5BB3-7015-FB48CFECD7AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D807B8-DE40-5BB3-7015-FB48CFECD7AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -205,7 +205,7 @@
             this.lstGroups.ShowGroups = false;
             this.lstGroups.Size = new System.Drawing.Size(490, 240);
             this.lstGroups.TabIndex = 0;
-            this.lstGroups.UnfocusedHighlightBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.lstGroups.UnfocusedSelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.lstGroups.UseCompatibleStateImageBehavior = false;
             this.lstGroups.View = System.Windows.Forms.View.Details;
             this.lstGroups.VirtualMode = true;

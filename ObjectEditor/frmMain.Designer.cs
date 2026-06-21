@@ -965,8 +965,8 @@
             this.lstProtos.Size = new System.Drawing.Size(425, 272);
             this.lstProtos.TabIndex = 0;
             this.lstProtos.TintSortColumn = true;
-            this.lstProtos.UnfocusedHighlightBackgroundColor = System.Drawing.Color.RoyalBlue;
-            this.lstProtos.UnfocusedHighlightForegroundColor = System.Drawing.Color.White;
+            this.lstProtos.UnfocusedSelectedBackColor = System.Drawing.Color.RoyalBlue;
+            this.lstProtos.UnfocusedSelectedForeColor = System.Drawing.Color.White;
             this.lstProtos.UseAlternatingBackColors = true;
             this.lstProtos.UseCompatibleStateImageBehavior = false;
             this.lstProtos.UseCustomSelectionColors = true;

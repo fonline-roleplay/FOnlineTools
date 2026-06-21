@@ -941,7 +941,7 @@ namespace ObjectEditor
             if (SaveFile.ShowDialog() == DialogResult.OK)
             {
                 ItemProtoParser ProtoParser = new ItemProtoParser();
-                ProtoParser.SaveProtosToFile(SaveFile.FileName, Utils.GetVersion(), FOObj, Protos, CustomInterface.CustomFields, Config.FormatWithSpace);
+                ProtoParser.SaveProtosToFile(SaveFile.FileName, Utils.GetVersion(), FOObj, Protos, Config.FormatWithSpace, null);
             }
 
             changeStatus("Saved protos.");
@@ -1008,7 +1008,7 @@ namespace ObjectEditor
                     ItemProtoParser ProtoParser = new ItemProtoParser();
                     if (CurrentProto != null)
                         SetProtoGUI(CurrentProto, false);
-                    ProtoParser.SaveProtosToFile(kvp.Key, Utils.GetVersion(), FOObj, kvp.Value, CustomInterface.CustomFields, Config.FormatWithSpace);
+                    ProtoParser.SaveProtosToFile(kvp.Key, Utils.GetVersion(), FOObj, kvp.Value, Config.FormatWithSpace, null);
                 }
             }
             else
@@ -1070,7 +1070,7 @@ namespace ObjectEditor
                     if (delta >= Ext.UpdateTime)
                     {
                         Ext.UpdateTimeCount = Environment.TickCount;
-                        this.Invoke((MethodInvoker)delegate { Scripting.Host.ScriptHost.update(Ext); });
+                        this.Invoke((System.Windows.Forms.MethodInvoker)delegate { Scripting.Host.ScriptHost.update(Ext); });
                     }
 
                 }
