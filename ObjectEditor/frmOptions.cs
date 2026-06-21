@@ -16,9 +16,7 @@ namespace ObjectEditor
 
         private void SetControls(bool ToUI)
         {
-            FOCommon.Utils.SetControl(txtDataFolder, ref Cfg.PathDataFolder, ToUI);
-            FOCommon.Utils.SetControl(txtFOOBJ, ref Cfg.PathObjMsg, ToUI);
-            FOCommon.Utils.SetControl(txtDefines, ref Cfg.PathDefines, ToUI);
+            FOCommon.Utils.SetControl(txtServerFolder, ref Cfg.PathServer, ToUI);
             FOCommon.Utils.SetControl(chkLockTabs, ref Cfg.LockTabs, ToUI);
             FOCommon.Utils.SetControl(chkSwitchTab, ref Cfg.SwitchTab, ToUI);
             FOCommon.Utils.SetControl(chkTranslateInterface, ref Cfg.TranslateLanguage, ToUI);
@@ -30,20 +28,23 @@ namespace ObjectEditor
             FOCommon.Utils.SetControl(chkShowWholeFilePath, ref Cfg.ShowWholeFilePath, ToUI);
             FOCommon.Utils.SetControl(chkLoadGraphics, ref Cfg.LoadGraphics, ToUI);
 
-            if (ToUI)
+            if (!String.IsNullOrEmpty(Cfg.PathGraphics))
             {
-                lstGraphicFiles.Items.Clear();
-                string[] paths = Cfg.PathGraphics.Split(";".ToCharArray());
-                foreach (string path in paths)
-                    if(!String.IsNullOrEmpty(path))
-                        lstGraphicFiles.Items.Add(path);
-            }
-            else
-            {
-                List<String> paths = new List<string>();
-                foreach (string path in lstGraphicFiles.Items)
-                    paths.Add(path);
-                Cfg.PathGraphics = String.Join(";", paths.ToArray());
+                if (ToUI)
+                {
+                    lstGraphicFiles.Items.Clear();
+                    string[] paths = Cfg.PathGraphics.Split(";".ToCharArray());
+                    foreach (string path in paths)
+                        if (!String.IsNullOrEmpty(path))
+                            lstGraphicFiles.Items.Add(path);
+                }
+                else
+                {
+                    List<String> paths = new List<string>();
+                    foreach (string path in lstGraphicFiles.Items)
+                        paths.Add(path);
+                    Cfg.PathGraphics = String.Join(";", paths.ToArray());
+                }
             }
 
             if (ToUI) cmbLanguage.Text = Cfg.PathLanguage; else Cfg.PathLanguage = cmbLanguage.Text;
@@ -81,27 +82,13 @@ namespace ObjectEditor
             return false;
         }
 
-        private void btnDataFolder_Click(object sender, EventArgs e)
+        private void btnServerRoot_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog OpenDataFolder = new FolderBrowserDialog();
             if (OpenDataFolder.ShowDialog() == DialogResult.OK)
             {
-                txtDataFolder.Text=OpenDataFolder.SelectedPath;
+                txtServerFolder.Text = OpenDataFolder.SelectedPath;
             }
-        }
-
-        private void btnDefines_Click(object sender, EventArgs e)
-        {
-            string Str="";
-            if (OpenDialogPath("_defines.fos (*.fos)|*.fos", ref Str))
-                txtDefines.Text = Str;
-        }
-
-        private void btnFOOBJ_Click(object sender, EventArgs e)
-        {
-            string Str = "";
-            if (OpenDialogPath("FOOBJ.msg (*.msg)|*.msg", ref Str))
-                txtFOOBJ.Text = Str;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

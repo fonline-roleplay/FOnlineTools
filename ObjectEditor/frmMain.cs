@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Reflection;
-using System.Text;
-using System.Threading;
-using System.Windows.Forms;
-
-using BrightIdeasSoftware;
+﻿using BrightIdeasSoftware;
 using FOCommon.Items;
 using FOCommon.Parsers;
 using FOCommon.Translation;
 using FOCommon.Win32;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace ObjectEditor
 {
@@ -21,6 +21,8 @@ namespace ObjectEditor
         List<ItemProto> LoadedProtos = new List<ItemProto>();
         List<String> LoadedFilenames = new List<string>();
         public Dictionary<String, TabPage> HardcodedTabs = new Dictionary<string, TabPage>();
+        ItempiDefinesdParser Defines = new ItempiDefinesdParser();
+
         MSGParser FOObj;
         private Config Config;
 
@@ -69,6 +71,7 @@ namespace ObjectEditor
 
             InitializeComponent();
             this.SetStyle(ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer, true);
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         }
 
         string GetAbout()
@@ -169,6 +172,7 @@ namespace ObjectEditor
                 Translate.TranslateForm(this);
             }
             InitFOObj();
+            InitDefines();
         }
 
         // Runs after GUI is initialized
@@ -328,11 +332,26 @@ namespace ObjectEditor
 
         private void InitFOObj()
         {
-            FOObj = new MSGParser(Config.PathObjMsg);
-            if (!FOObj.Parse())
+            var serverCfg = File.ReadLines($"{Config.PathServer}{Path.DirectorySeparatorChar}FOnlineServer.cfg")
+               .Where(line => !string.IsNullOrWhiteSpace(line) && !line.StartsWith('#'))
+               .Select(line => line.Split(new char[] { '=' }, 2, 0))
+               .ToDictionary(parts => parts[0].Trim(), parts => parts[1].Trim());
+
+            string Val = serverCfg["Language_0"];
+            string langName = !string.IsNullOrEmpty(Val) ? Val : "russ";
+            string foobjPath = $"{Config.PathServer}{Path.DirectorySeparatorChar}text{Path.DirectorySeparatorChar}{langName}{Path.DirectorySeparatorChar}FOOBJ.MSG";
+            Encoding encoding = Encoding.GetEncoding("windows-1251");
+            Config.PathObj = foobjPath;
+            FOObj = new MSGParser(foobjPath);
+            if (!FOObj.Parse(encoding))
                 Utils.Log("Failed to parse FOObj.msg");
         }
 
+        private void InitDefines()
+        {
+            string itempidPath = $"{Config.PathServer}{Path.DirectorySeparatorChar}scripts{Path.DirectorySeparatorChar}_itempid.fos";
+            Defines.ReadFromFileAsync(itempidPath);
+        }
 
         // Property tabs that are hardcoded
         // searched in custom controls code (CustomInterpreter.cs)
@@ -743,7 +762,7 @@ namespace ObjectEditor
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OptionsForm.ShowDialog();
-            if (FOObj.GetFilename() != Config.PathObjMsg)
+            if (FOObj.GetFilename() != Config.PathObj)
             {
                 InitFOObj();
                 foreach (ItemProto Prot in LoadedProtos)
@@ -941,7 +960,7 @@ namespace ObjectEditor
             if (SaveFile.ShowDialog() == DialogResult.OK)
             {
                 ItemProtoParser ProtoParser = new ItemProtoParser();
-                ProtoParser.SaveProtosToFile(SaveFile.FileName, Utils.GetVersion(), FOObj, Protos, Config.FormatWithSpace, null);
+                ProtoParser.SaveProtosToFile(SaveFile.FileName, Utils.GetVersion(), FOObj, Protos, Config.FormatWithSpace, Defines.defineByPID);
             }
 
             changeStatus("Saved protos.");
@@ -1008,7 +1027,7 @@ namespace ObjectEditor
                     ItemProtoParser ProtoParser = new ItemProtoParser();
                     if (CurrentProto != null)
                         SetProtoGUI(CurrentProto, false);
-                    ProtoParser.SaveProtosToFile(kvp.Key, Utils.GetVersion(), FOObj, kvp.Value, Config.FormatWithSpace, null);
+                    ProtoParser.SaveProtosToFile(kvp.Key, Utils.GetVersion(), FOObj, kvp.Value, Config.FormatWithSpace, Defines.defineByPID);
                 }
             }
             else

@@ -10,10 +10,9 @@ namespace ObjectEditor
         public int WindowLocationX;
         public int WindowLocationY;
         public string PathGraphics; // For item graphics
-        public string PathDataFolder; // [server_root]/data
-        public string PathObjMsg; // FOOBJ.MSG
-        public string PathDefines; // _defines.fos
         public string PathLanguage; // *.lang
+        public string PathServer; // Server Root path
+        public string PathObj;
         public string PathEditorScript;
         public bool TranslateLanguage;
         public bool LoadGraphics;
@@ -31,10 +30,8 @@ namespace ObjectEditor
             : base(ConfigName)
         {
             
-            AddConfigItem(false, "Paths",  "NamesFolder",           "PathDataFolder",        "." + Path.DirectorySeparatorChar + "data" + Path.DirectorySeparatorChar);
-            AddConfigItem(false, "Paths",  "Scripts",               "PathEditorScript",      "." + Path.DirectorySeparatorChar + "scripts" + Path.DirectorySeparatorChar);
-            AddConfigItem(false, "Paths",  "ObjMsg",                "PathObjMsg",            "FOOBJ.MSG");
-            AddConfigItem(false, "Paths",  "Defines",               "PathDefines",           "_defines.fos");
+            AddConfigItem(false, "Paths",  "ServerFolder",          "PathServer",            $".{Path.DirectorySeparatorChar}");
+            AddConfigItem(false, "Paths",  "Scripts",               "PathEditorScript",      $".{Path.DirectorySeparatorChar}scripts{Path.DirectorySeparatorChar}");
             AddConfigItem(true,  "Paths",  "Language",              "PathLanguage",          "");
             AddConfigItem(true,  "Paths",  "Graphics",              "PathGraphics",          "");
             AddConfigItem(true,  "Misc",   "LoadGraphics",          "LoadGraphics",          false);

@@ -33,14 +33,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.tabControlOptions = new System.Windows.Forms.TabControl();
             this.tabPagePaths = new System.Windows.Forms.TabPage();
-            this.btnFOOBJ = new System.Windows.Forms.Button();
-            this.txtFOOBJ = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnDefines = new System.Windows.Forms.Button();
-            this.txtDefines = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnDataFolder = new System.Windows.Forms.Button();
-            this.txtDataFolder = new System.Windows.Forms.TextBox();
+            this.btnServerRoot = new System.Windows.Forms.Button();
+            this.txtServerFolder = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageUI = new System.Windows.Forms.TabPage();
             this.chkResizeOnResize = new System.Windows.Forms.CheckBox();
@@ -56,21 +50,21 @@
             this.tabPageSaving = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.chkFormatWithSpace = new System.Windows.Forms.CheckBox();
+            this.tabPageGraphics = new System.Windows.Forms.TabPage();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.lstGraphicFiles = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.chkLoadGraphics = new System.Windows.Forms.CheckBox();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
             this.chkStripPrefix = new System.Windows.Forms.CheckBox();
-            this.tabPageGraphics = new System.Windows.Forms.TabPage();
-            this.chkLoadGraphics = new System.Windows.Forms.CheckBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lstGraphicFiles = new System.Windows.Forms.ListBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.tabControlOptions.SuspendLayout();
             this.tabPagePaths.SuspendLayout();
             this.tabPageUI.SuspendLayout();
             this.tabPageListView.SuspendLayout();
             this.tabPageSaving.SuspendLayout();
-            this.tabPageGeneral.SuspendLayout();
             this.tabPageGraphics.SuspendLayout();
+            this.tabPageGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOk
@@ -109,14 +103,8 @@
             // 
             // tabPagePaths
             // 
-            this.tabPagePaths.Controls.Add(this.btnFOOBJ);
-            this.tabPagePaths.Controls.Add(this.txtFOOBJ);
-            this.tabPagePaths.Controls.Add(this.label2);
-            this.tabPagePaths.Controls.Add(this.btnDefines);
-            this.tabPagePaths.Controls.Add(this.txtDefines);
-            this.tabPagePaths.Controls.Add(this.label3);
-            this.tabPagePaths.Controls.Add(this.btnDataFolder);
-            this.tabPagePaths.Controls.Add(this.txtDataFolder);
+            this.tabPagePaths.Controls.Add(this.btnServerRoot);
+            this.tabPagePaths.Controls.Add(this.txtServerFolder);
             this.tabPagePaths.Controls.Add(this.label1);
             this.tabPagePaths.Location = new System.Drawing.Point(4, 22);
             this.tabPagePaths.Name = "tabPagePaths";
@@ -126,83 +114,31 @@
             this.tabPagePaths.Text = "Paths";
             this.tabPagePaths.UseVisualStyleBackColor = true;
             // 
-            // btnFOOBJ
+            // btnServerRoot
             // 
-            this.btnFOOBJ.Location = new System.Drawing.Point(313, 71);
-            this.btnFOOBJ.Name = "btnFOOBJ";
-            this.btnFOOBJ.Size = new System.Drawing.Size(25, 19);
-            this.btnFOOBJ.TabIndex = 25;
-            this.btnFOOBJ.Text = "...";
-            this.btnFOOBJ.UseVisualStyleBackColor = true;
-            this.btnFOOBJ.Click += new System.EventHandler(this.btnFOOBJ_Click);
+            this.btnServerRoot.Location = new System.Drawing.Point(313, 11);
+            this.btnServerRoot.Name = "btnServerRoot";
+            this.btnServerRoot.Size = new System.Drawing.Size(25, 19);
+            this.btnServerRoot.TabIndex = 18;
+            this.btnServerRoot.Text = "...";
+            this.btnServerRoot.UseVisualStyleBackColor = true;
+            this.btnServerRoot.Click += new System.EventHandler(this.btnServerRoot_Click);
             // 
-            // txtFOOBJ
+            // txtServerFolder
             // 
-            this.txtFOOBJ.Location = new System.Drawing.Point(103, 70);
-            this.txtFOOBJ.Name = "txtFOOBJ";
-            this.txtFOOBJ.Size = new System.Drawing.Size(204, 20);
-            this.txtFOOBJ.TabIndex = 24;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 13);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "FOOBJ.MSG";
-            // 
-            // btnDefines
-            // 
-            this.btnDefines.Location = new System.Drawing.Point(313, 42);
-            this.btnDefines.Name = "btnDefines";
-            this.btnDefines.Size = new System.Drawing.Size(25, 19);
-            this.btnDefines.TabIndex = 21;
-            this.btnDefines.Text = "...";
-            this.btnDefines.UseVisualStyleBackColor = true;
-            this.btnDefines.Click += new System.EventHandler(this.btnDefines_Click);
-            // 
-            // txtDefines
-            // 
-            this.txtDefines.Location = new System.Drawing.Point(103, 40);
-            this.txtDefines.Name = "txtDefines";
-            this.txtDefines.Size = new System.Drawing.Size(204, 20);
-            this.txtDefines.TabIndex = 20;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 45);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "_defines.fos";
-            // 
-            // btnDataFolder
-            // 
-            this.btnDataFolder.Location = new System.Drawing.Point(313, 11);
-            this.btnDataFolder.Name = "btnDataFolder";
-            this.btnDataFolder.Size = new System.Drawing.Size(25, 19);
-            this.btnDataFolder.TabIndex = 18;
-            this.btnDataFolder.Text = "...";
-            this.btnDataFolder.UseVisualStyleBackColor = true;
-            this.btnDataFolder.Click += new System.EventHandler(this.btnDataFolder_Click);
-            // 
-            // txtDataFolder
-            // 
-            this.txtDataFolder.Location = new System.Drawing.Point(103, 10);
-            this.txtDataFolder.Name = "txtDataFolder";
-            this.txtDataFolder.Size = new System.Drawing.Size(204, 20);
-            this.txtDataFolder.TabIndex = 16;
+            this.txtServerFolder.Location = new System.Drawing.Point(103, 10);
+            this.txtServerFolder.Name = "txtServerFolder";
+            this.txtServerFolder.Size = new System.Drawing.Size(204, 20);
+            this.txtServerFolder.TabIndex = 16;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Data Folder (/data)";
+            this.label1.Text = "Server Root Folder";
             // 
             // tabPageUI
             // 
@@ -347,6 +283,68 @@
             this.chkFormatWithSpace.Text = "Format fields with space";
             this.chkFormatWithSpace.UseVisualStyleBackColor = true;
             // 
+            // tabPageGraphics
+            // 
+            this.tabPageGraphics.Controls.Add(this.btnDelete);
+            this.tabPageGraphics.Controls.Add(this.btnAdd);
+            this.tabPageGraphics.Controls.Add(this.lstGraphicFiles);
+            this.tabPageGraphics.Controls.Add(this.label6);
+            this.tabPageGraphics.Controls.Add(this.chkLoadGraphics);
+            this.tabPageGraphics.Location = new System.Drawing.Point(4, 22);
+            this.tabPageGraphics.Name = "tabPageGraphics";
+            this.tabPageGraphics.Size = new System.Drawing.Size(342, 183);
+            this.tabPageGraphics.TabIndex = 5;
+            this.tabPageGraphics.Text = "Graphics";
+            this.tabPageGraphics.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(115, 149);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(98, 23);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(14, 149);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(95, 23);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Add file(s)";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // lstGraphicFiles
+            // 
+            this.lstGraphicFiles.FormattingEnabled = true;
+            this.lstGraphicFiles.Location = new System.Drawing.Point(13, 48);
+            this.lstGraphicFiles.Name = "lstGraphicFiles";
+            this.lstGraphicFiles.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstGraphicFiles.Size = new System.Drawing.Size(316, 95);
+            this.lstGraphicFiles.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(203, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Only .zip or .dat (Fallout 2) can be loaded.";
+            // 
+            // chkLoadGraphics
+            // 
+            this.chkLoadGraphics.AutoSize = true;
+            this.chkLoadGraphics.Location = new System.Drawing.Point(13, 12);
+            this.chkLoadGraphics.Name = "chkLoadGraphics";
+            this.chkLoadGraphics.Size = new System.Drawing.Size(95, 17);
+            this.chkLoadGraphics.TabIndex = 0;
+            this.chkLoadGraphics.Text = "Load Graphics";
+            this.chkLoadGraphics.UseVisualStyleBackColor = true;
+            // 
             // tabPageGeneral
             // 
             this.tabPageGeneral.Controls.Add(this.chkStripPrefix);
@@ -367,68 +365,6 @@
             this.chkStripPrefix.TabIndex = 5;
             this.chkStripPrefix.Text = "Strip prefix from defines (requires restart)";
             this.chkStripPrefix.UseVisualStyleBackColor = true;
-            // 
-            // tabPageGraphics
-            // 
-            this.tabPageGraphics.Controls.Add(this.btnDelete);
-            this.tabPageGraphics.Controls.Add(this.btnAdd);
-            this.tabPageGraphics.Controls.Add(this.lstGraphicFiles);
-            this.tabPageGraphics.Controls.Add(this.label6);
-            this.tabPageGraphics.Controls.Add(this.chkLoadGraphics);
-            this.tabPageGraphics.Location = new System.Drawing.Point(4, 22);
-            this.tabPageGraphics.Name = "tabPageGraphics";
-            this.tabPageGraphics.Size = new System.Drawing.Size(342, 183);
-            this.tabPageGraphics.TabIndex = 5;
-            this.tabPageGraphics.Text = "Graphics";
-            this.tabPageGraphics.UseVisualStyleBackColor = true;
-            // 
-            // chkLoadGraphics
-            // 
-            this.chkLoadGraphics.AutoSize = true;
-            this.chkLoadGraphics.Location = new System.Drawing.Point(13, 12);
-            this.chkLoadGraphics.Name = "chkLoadGraphics";
-            this.chkLoadGraphics.Size = new System.Drawing.Size(95, 17);
-            this.chkLoadGraphics.TabIndex = 0;
-            this.chkLoadGraphics.Text = "Load Graphics";
-            this.chkLoadGraphics.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(203, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Only .zip or .dat (Fallout 2) can be loaded.";
-            // 
-            // lstGraphicFiles
-            // 
-            this.lstGraphicFiles.FormattingEnabled = true;
-            this.lstGraphicFiles.Location = new System.Drawing.Point(13, 48);
-            this.lstGraphicFiles.Name = "lstGraphicFiles";
-            this.lstGraphicFiles.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstGraphicFiles.Size = new System.Drawing.Size(316, 95);
-            this.lstGraphicFiles.TabIndex = 2;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(14, 149);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(95, 23);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Add file(s)";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(115, 149);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(98, 23);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmOptions
             // 
@@ -456,10 +392,10 @@
             this.tabPageListView.PerformLayout();
             this.tabPageSaving.ResumeLayout(false);
             this.tabPageSaving.PerformLayout();
-            this.tabPageGeneral.ResumeLayout(false);
-            this.tabPageGeneral.PerformLayout();
             this.tabPageGraphics.ResumeLayout(false);
             this.tabPageGraphics.PerformLayout();
+            this.tabPageGeneral.ResumeLayout(false);
+            this.tabPageGeneral.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -470,14 +406,8 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TabControl tabControlOptions;
         private System.Windows.Forms.TabPage tabPagePaths;
-        private System.Windows.Forms.Button btnFOOBJ;
-        private System.Windows.Forms.TextBox txtFOOBJ;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnDefines;
-        private System.Windows.Forms.TextBox txtDefines;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnDataFolder;
-        private System.Windows.Forms.TextBox txtDataFolder;
+        private System.Windows.Forms.Button btnServerRoot;
+        private System.Windows.Forms.TextBox txtServerFolder;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPageGeneral;
         private System.Windows.Forms.CheckBox chkStripPrefix;
